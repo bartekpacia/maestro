@@ -84,7 +84,7 @@ tasks.register("copyMaestroAndroid", Copy) {
 
     it.doLast {
         if (JavaVersion.current() != JavaVersion.VERSION_1_8) {
-            throw new GradleException("This build must be run with java 8")
+            // throw new GradleException("This build must be run with java 8")
         }
 
         if (!layout.buildDirectory.file(maestroAndroidApkDestPath).get().asFile.exists())
@@ -105,7 +105,7 @@ tasks.register("copyMaestroServer", Copy) {
 
     it.doLast {
         if (JavaVersion.current() != JavaVersion.VERSION_1_8) {
-            throw new GradleException("This build must be run with java 8")
+            // throw new GradleException("This build must be run with java 8")
         }
         
         if (!layout.buildDirectory.file(maestroServerApkDestPath).get().asFile.exists())
