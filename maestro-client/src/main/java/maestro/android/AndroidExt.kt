@@ -19,9 +19,8 @@ fun File.asManifest(): ManifestData {
 @Throws(IOException::class)
 private fun getManifestData(archive: Archive): ManifestData {
     val manifestPath = archive.contentRoot.resolve("AndroidManifest.xml")
-    val manifestBytes = BinaryXmlParser.decodeXml(
-        "AndroidManifest.xml", Files.readAllBytes(manifestPath)
-    )
+    val manifestContents = Files.readAllBytes(manifestPath)
+    val manifestBytes = BinaryXmlParser.decodeXml(manifestContents)
     return try {
         AndroidManifestParser.parse(ByteArrayInputStream(manifestBytes))
     } catch (e: ParserConfigurationException) {
